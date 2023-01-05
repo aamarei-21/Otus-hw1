@@ -51,7 +51,7 @@ target_link_libraries(helloworld
 
 target_link_libraries(test_version
     ${Boost_LIBRARIES}
-    helloworld_lib
+    helloworld
 )
 
 if (MSVC)

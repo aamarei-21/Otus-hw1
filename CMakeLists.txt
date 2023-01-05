@@ -8,43 +8,42 @@ project(helloworld VERSION ${PROJECT_VESRION})
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 configure_file(
-	version.h.in
-	version.h
+    version.h.in
+    version.h
 )
 
 # set(SOURSE
-# 	main.cpp
-# 	lib.cpp
+# main.cpp
+# lib.cpp
 # )
 
 # set(HEADERS
-# 	lib.h
+# lib.h
 # )
 
 # add_executable(helloworld_cli ${SOURSE} ${HEADERS})
-
 add_executable(helloworld main.cpp)
 add_library(helloworld_lib lib.cpp)
 add_executable(test_version test_version.cpp)
 
 set_target_properties(
-	helloworld PROPERTIES
-	CXX_STANDARD 14
-	CXX_STANDARD_REQUIRED ON
+    helloworld PROPERTIES
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
 )
 
 target_include_directories(
-	helloworld_lib
-	PRIVATE
-	${CMAKE_CURRENT_BINARY_DIR}
+    helloworld_lib
+    PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 target_link_libraries(helloworld
-	PRIVATE
-	helloworld_lib
+    PRIVATE
+    helloworld
 )
 
-if (MSVC)
+if(MSVC)
     target_compile_options(helloworld PRIVATE
         /W4
     )
@@ -54,7 +53,7 @@ if (MSVC)
     target_compile_options(test_version PRIVATE
         /W4
     )
-else ()
+else()
     target_compile_options(helloworld PRIVATE
         -Wall -Wextra -pedantic -Werror
     )

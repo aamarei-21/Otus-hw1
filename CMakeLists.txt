@@ -40,6 +40,11 @@ target_include_directories(
 
 target_link_libraries(helloworld
     PRIVATE
+    helloworld_lib
+)
+
+target_link_libraries(test_version
+    ${Boost_LIBRARIES}
     helloworld
 )
 

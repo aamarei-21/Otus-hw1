@@ -51,9 +51,9 @@ if (MSVC)
     target_compile_options(helloworld_lib PRIVATE
         /W4
     )
-    # target_compile_options(test_version PRIVATE
-    #     /W4
-    # )
+    target_compile_options(test_version PRIVATE
+        /W4
+    )
 else ()
     target_compile_options(helloworld PRIVATE
         -Wall -Wextra -pedantic -Werror
@@ -61,9 +61,9 @@ else ()
     target_compile_options(helloworld_lib PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    # target_compile_options(test_version PRIVATE
-    #     -Wall -Wextra -pedantic -Werror
-    # )
+    target_compile_options(test_version PRIVATE
+        -Wall -Wextra -pedantic -Werror
+    )
 endif()
 
 install(TARGETS helloworld RUNTIME DESTINATION bin)
